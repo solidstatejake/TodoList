@@ -1,5 +1,9 @@
 let checked = false
-$('.checkbox').click(() => {
-  $('.checkbox').toggleClass('checked')
-  checked = !checked
+
+// couldn't get jQuery $(this) to work.
+document.querySelectorAll('.checkbox').forEach(checkbox => {
+  checkbox.addEventListener('click', () => {
+    checkbox.classList.toggle('checked')
+    checked = !checked
+  })
 })
