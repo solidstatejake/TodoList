@@ -2,120 +2,130 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet'
+          href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <title>Document</title>
 </head>
 
 <body>
+<!--Todo: create tool tip for when user puts cursor over the circle in input.-->
+    <div class="main-container">
 
-  <div class="main-container">
-    <!--- header --->
-    <header class="header__container">
-      <h1 class="header">DoWop</h1>
-      <div class="instructions">
-        <p class="instructions-txt">Just enter your todo! Click the checkbox next to the todo when it's been completed.</p>
-      </div>
-    </header>
-    <!--  
+        <!--- header --->
+        <header class="header__container">
+            <h1 class="header">DoWop</h1>
+            <div class="instructions">
+                <p class="instructions-txt">Just enter your todo! Click the checkbox next
+                                            to the todo when it's been completed.</p>
+            </div>
+        </header>
+        <!--
 
--->
-    <!--- input --->
-    <div class="input__container-main">
+    -->
+        <!--- input --->
+        <div class="input__container-main">
 
-      <div class="input__container-first">
+            <div class="input__container-first">
 
-        <label class="input__label" for="title">
-          Title
-        </label>
+                <label class="input__label" for="title">
+                    Title
+                </label>
 
-        <input class="input input__title NA" type="text" name="title">
-        <i class='fas fa-circle input__icon first-icon'></i>
+                <input class="input NA" type="text" id="title">
+                <i class='fas fa-circle input__icon first-icon'></i>
 
-      </div>
+            </div>
 
-      <div class="input__container-second">
-        <label class="input__label" for="content">
-          Task
-        </label>
-        <input class="input input__content NA" type="text" name="content">
-        <i class='fas fa-circle input__icon second-icon'></i>
-      </div>
-    </div>
-    
-    <!-- 
+            <div class="input__container-second">
+                <label class="input__label" for="content">
+                    Task
+                </label>
+                <input class="input NA" type="text" id="content">
+                <i class='fas fa-circle input__icon second-icon'></i>
+            </div>
+        </div>
 
--->
-    <!--- button --->
-    <div class="btn__container">
-      <div class="btn">Create Todo</div>
-    </div>
+        <!--
 
-    <!--- todos --->
-    <div class="todo__container">
-      
-      <div class="todo">
+    -->
+        <!--- btn.scss --->
+        <div class="btn__container">
+            <div class="btn">Create Todo</div>
+        </div>
 
-        <!-- todo stats -->
-        <div class="todo__info-container">
-          
-          <span class='todo__info-title'>I am a title</span>
-           
-          <!-- todo options -->
-          <div class="todo__option-container">
-            
+        <!--- todos --->
+        <div class="todo__container">
+
+            <div class="todo">
+
+                <!-- _todo stats -->
+                <div class="todo__info-container">
+
+                    <span class='todo__info-title'>I am a title</span>
+
+                    <!-- _todo options -->
+                    <div class="todo__option-container">
+
             <span class="todo__option-complete">
               <i class="fas fa-check"></i>
             </span>
-            
-            <span class="todo__option-delete">
+
+                        <span class="todo__option-delete">
               <i class="fas fa-times"></i>
             </span>
-            
-          </div>
-          
-        </div>
-        
-        <!-- todo content -->
-        <span class="todo__content-container">
+
+                    </div>
+
+                </div>
+
+                <!-- _todo content -->
+                <span class="todo__content-container">
           <p class="todo__content">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat est minus unde ut eos debitis nobis, ipsam iure nihil quasi dolorum fugiat qui eveniet aliquam. Adipisci dolorem quae magnam distinctio eos! Voluptas quas a facilis quidem quasi deserunt explicabo maiores dolorum voluptates, dicta molestias repudiandae rem necessitatibus magnam omnis delectus sapiente iste excepturi officia eos, inventore laborum? Distinctio recusandae laboriosam nisi veritatis cum inventore. Eius hic facilis dolorem provident in facere iusto eaque aperiam totam consequatur, natus incidunt saepe, corrupti voluptate? Placeat assumenda commodi similique autem nam quas suscipit dolorum ipsum reiciendis consequatur, quo, quasi sequi est aliquam modi quaerat!
           </p>
         </span>
-      </div>
-      
-      <!-- 2nd todo -->
-      <div class="todo">
+            </div>
 
-        <div class="todo__info-container">
-          
-          <span class='todo__info-title'>I am a title</span>
-           
-          <!-- todo options -->
-          <div class="todo__option-container">
-            
+            <!-- 2nd _todo -->
+            <div class="todo">
+
+                <div class="todo__info-container">
+
+                    <span class='todo__info-title'>I am a title</span>
+
+                    <!-- todo options -->
+                    <div class="todo__option-container">
+
             <span class="todo__option-complete">
               <i class="fas fa-check"></i>
             </span>
-            
-            <span class="todo__option-delete">
+
+                        <span class="todo__option-delete">
               <i class="fas fa-times"></i>
             </span>
-            
-          </div>
-          
-        </div>
-        <span class="todo__content-container">
+
+                    </div>
+
+                </div>
+                <span class="todo__content-container">
           <p class="todo__content">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, nulla.
           </p>
         </span>
-        
-      </div>
 
+            </div>
+
+        </div>
     </div>
-  </div>
+
+    <script
+        src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>

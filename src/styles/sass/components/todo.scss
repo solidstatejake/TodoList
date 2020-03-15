@@ -1,0 +1,69 @@
+.todo {
+  background    : $todo-bg;
+  border-radius : 2px;
+  display       : flex;
+  margin        : 2rem 0;
+  padding       : 2rem;
+
+  &__container {
+    max-width : $max-app-width;
+  }
+
+  &__option {
+    &-container {
+      align-self     : center;
+      align-items    : center;
+      border-radius  : 2px;
+      display        : flex;
+      flex-direction : column;
+      margin-top     : 2rem;
+      width          : 100%;
+    }
+
+    &-complete, &-delete{
+      cursor: pointer;
+    }
+
+    &-complete {
+
+    }
+
+    &-delete {
+      margin-top : 2rem;
+    }
+  }
+
+  &__info {
+    &-container {
+      display        : flex;
+      flex-direction : column;
+      margin-right   : 2rem;
+    }
+
+    &-title {
+
+    }
+  }
+
+  &__content {
+    &-container {
+      margin    : auto;
+      max-width : 46rem;
+    }
+  }
+}
+
+/* Classes for JavaScript manip */
+
+.NA {
+  border-bottom : 5px solid #3267b8;
+}
+
+.valid {
+  border-bottom : 5px solid #339635;
+}
+
+.invalid {
+  border-bottom : 5px solid #ba4e4e;
+}
+

@@ -1,0 +1,20 @@
+* {
+  margin     : 0;
+  padding    : 0;
+  box-sizing : inherit;
+}
+
+html {
+  // not in _typography because determines rem size which is used everywhere.
+  font-size : 62.5%
+}
+
+body {
+  box-sizing     : border-box;
+  background     : $bg-grey;
+  color          : whitesmoke;
+  display        : flex;
+  flex-direction : column;
+  font-family    : Roboto, sans-serif;
+  font-weight    : 300;
+}

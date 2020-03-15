@@ -1,0 +1,13 @@
+.header {
+  &__container {
+    border-bottom  : .3px solid gray;
+    display        : flex;
+    flex-direction : column;
+    margin-bottom  : 2.5rem;
+    padding-bottom : 2rem;
+    place-items    : center;
+    place-content  : center;
+  }
+
+  margin : 3rem;
+}

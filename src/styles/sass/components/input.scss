@@ -1,0 +1,26 @@
+.input {
+  border        : none;
+  border-radius : 3px;
+  height        : 6rem;
+  text-align    : center;
+  width         : 30rem;
+
+  &__container {
+    &-main {
+      display        : flex;
+      place-contents : center;
+      place-items    : center;
+    }
+
+  }
+
+  &__label {
+    position : relative;
+    left     : 3.8rem;
+  }
+
+  &__icon {
+    position : relative;
+    right    : 2.2rem;
+  }
+}
