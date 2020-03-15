@@ -1,3 +1,6 @@
+// Todo: Most of small-todo is same as big todo. Refactor.
+
+/* big _todo */
 .todo {
   background    : $light-grey;
   border-radius : 2px;
@@ -15,7 +18,6 @@
       display        : flex;
       flex-direction : column;
       margin-top     : 3rem;
-
     }
 
     &-complete, &-delete {
@@ -36,10 +38,6 @@
       display        : flex;
       flex-direction : column;
       margin-right   : 2rem;
-
-      &-alt {
-        display : flex;
-      }
     }
 
     &-title {
@@ -56,6 +54,7 @@
   }
 }
 
+/* small _todo */
 .todo-sm {
   height : 11rem;
 
@@ -71,7 +70,7 @@
     height        : min-content;
     max-width     : 14.5rem;
     text-align    : center;
-    word-break    : anywhere;
+    word-break    : break-word;
 
     &-container {
       display        : flex;
