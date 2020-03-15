@@ -9,7 +9,7 @@ let valid   = {
 const red    = '#ba4e4e',
       green  = '#339635',
       blue   = '#3267b8',
-      orange = '#be6c15'
+      orange = '#bc8640'
 
 /* _todo */
 

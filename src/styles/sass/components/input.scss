@@ -8,20 +8,18 @@
   &__container {
     display         : flex;
     justify-content : space-between;
-    //place-content   : center;
     place-items     : center;
     width           : 30rem;
 
     &-main {
       display       : flex;
       place-content : space-evenly;
-      //place-items   : center;
     }
   }
 
   &__label {
-    position : absolute;
-    margin-left: 1.3rem;
+    position    : absolute;
+    margin-left : 1.3rem;
   }
 
   &__icon {

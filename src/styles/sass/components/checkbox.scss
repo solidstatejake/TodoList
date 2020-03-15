@@ -1,14 +1,22 @@
 .checkbox {
-  background    : white;
+  background    : $light-light-grey;
   border-radius : 50%;
   height        : 3rem;
-  margin-right  : 2rem;
+  margin        : auto;
   width         : 3rem;
 
   &__container {
     align-items     : center;
     display         : flex;
     justify-content : center;
-    margin-left     : 4.5rem;
+    margin-left     : 3.5rem;
   }
+
+  &__label {
+    margin-left : 1.5rem;
+  }
+}
+
+.checked {
+  background-color : $orange;
 }

@@ -1,5 +1,5 @@
 .todo {
-  background    : $todo-bg;
+  background    : $light-grey;
   border-radius : 2px;
   display       : flex;
   margin        : 2rem 0;
@@ -11,17 +11,15 @@
 
   &__option {
     &-container {
-      align-self     : center;
       align-items    : center;
-      border-radius  : 2px;
       display        : flex;
       flex-direction : column;
-      margin-top     : 2rem;
-      width          : 100%;
+      margin-top     : 3rem;
+
     }
 
-    &-complete, &-delete{
-      cursor: pointer;
+    &-complete, &-delete {
+      cursor : pointer;
     }
 
     &-complete {
@@ -29,7 +27,7 @@
     }
 
     &-delete {
-      margin-top : 2rem;
+      margin : 2rem 0;
     }
   }
 
@@ -38,10 +36,15 @@
       display        : flex;
       flex-direction : column;
       margin-right   : 2rem;
+
+      &-alt {
+        display : flex;
+      }
     }
 
     &-title {
-
+      border-bottom : 1px solid white;
+      font-weight   : 400;
     }
   }
 
@@ -52,6 +55,50 @@
     }
   }
 }
+
+.todo-sm {
+  height : 11rem;
+
+  &-info-container {
+    display   : flex;
+    max-width : 14.5rem;
+  }
+
+  &-title {
+    border-bottom : 1px solid white;
+    font-size     : 1.4rem;
+    font-weight   : 400;
+    height        : min-content;
+    max-width     : 14.5rem;
+    text-align    : center;
+    word-break    : anywhere;
+
+    &-container {
+      display        : flex;
+      flex-direction : column;
+    }
+  }
+
+  &-content {
+
+    &-container {
+      display     : flex;
+      place-items : center;
+    }
+  }
+
+  &-option {
+    &-container {
+      align-items    : center;
+      display        : flex;
+      flex-direction : column;
+      font-size      : 2rem;
+      margin         : 0 3rem;
+    }
+  }
+
+}
+
 
 /* Classes for JavaScript manip */
 
