@@ -1,101 +1,80 @@
-// Todo: Most of small-todo is same as big todo. Refactor.
-
-/* big _todo */
 .todo {
-  background    : $light-grey;
-  border-radius : 2px;
-  display       : flex;
-  margin        : 2rem 0;
-  padding       : 2rem;
+  height          : 11rem;
+  place-content   : space-between;
+  place-items     : center;
+  align-items     : center;
+  background      : $light-grey;
+  border-radius   : 2px;
+  display         : flex;
+  justify-content : space-between;
+  margin          : 2rem 0;
+  padding         : 2rem;
 
-  &__container {
+
+  &-container {
+    color     : white;
     max-width : $max-app-width;
-  }
 
-  &__option {
-    &-container {
+    &-content {
+      display        : flex;
+      flex-direction : column;
+      max-width      : 46rem;
+      padding        : 2rem;
+      place-items    : center;
+    }
+
+    &-option {
       align-items    : center;
       display        : flex;
       flex-direction : column;
-      margin-top     : 3rem;
+      font-size      : 2rem;
     }
 
-    &-complete, &-delete {
-      cursor : pointer;
-    }
-
-    &-complete {
-
-    }
-
-    &-delete {
-      margin : 2rem 0;
-    }
-  }
-
-  &__info {
-    &-container {
-      display        : flex;
-      flex-direction : column;
-      margin-right   : 2rem;
+    &-info {
+      display   : flex;
+      max-width : 14.5rem;
     }
 
     &-title {
-      border-bottom : 1px solid white;
-      font-weight   : 400;
-    }
-  }
-
-  &__content {
-    &-container {
-      margin    : auto;
-      max-width : 46rem;
-    }
-  }
-}
-
-/* small _todo */
-.todo-sm {
-  height : 11rem;
-
-  &-info-container {
-    display   : flex;
-    max-width : 14.5rem;
-  }
-
-  &-title {
-    border-bottom : 1px solid white;
-    font-size     : 1.4rem;
-    font-weight   : 400;
-    height        : min-content;
-    max-width     : 14.5rem;
-    text-align    : center;
-    word-break    : break-word;
-
-    &-container {
       display        : flex;
       flex-direction : column;
     }
   }
 
   &-content {
-
-    &-container {
-      display     : flex;
-      place-items : center;
-    }
+    font-size   : 1.3rem;
+    line-height : 2rem;
+    word-break  : break-all;
   }
 
   &-option {
-    &-container {
-      align-items    : center;
-      display        : flex;
-      flex-direction : column;
-      font-size      : 2rem;
-      margin         : 0 3rem;
+
+    &-complete, &-delete {
+      cursor : pointer;
+    }
+
+    &-complete {
+      color : $green;
+    }
+
+    &-delete {
+      color : $red;
     }
   }
 
+  &-title {
+    font-size   : 1.4rem;
+    font-weight : 400;
+    max-width   : 14.5rem;
+    text-align  : center;
+    word-break  : break-word;
+
+    &-info {
+      border-bottom : 1px solid white;
+      font-size     : 1.4rem;
+      font-weight   : 400;
+    }
+  }
 }
 
 

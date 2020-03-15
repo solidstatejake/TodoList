@@ -1,12 +1,15 @@
 .btn {
   background    : $blue;
   border-radius : 2px;
+  color         : white;
   cursor        : pointer;
+  font-size     : 1.3rem;
   height        : $btn-height;
+  line-height   : $btn-height;
   text-align    : center;
   width         : 16rem;
 
-  &__container {
+  &-container {
     margin : 3rem 3.5rem;
   }
 }
