@@ -1,0 +1,14 @@
+.checkbox {
+  background    : white;
+  border-radius : 50%;
+  height        : 3rem;
+  margin-right  : 2rem;
+  width         : 3rem;
+
+  &__container {
+    align-items     : center;
+    display         : flex;
+    justify-content : center;
+    margin-left     : 4.5rem;
+  }
+}

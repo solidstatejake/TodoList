@@ -1,22 +1,27 @@
 .input {
   border        : none;
   border-radius : 3px;
+  flex-shrink   : 0;
   height        : 6rem;
-  text-align    : center;
   width         : 30rem;
 
   &__container {
-    &-main {
-      display        : flex;
-      place-contents : center;
-      place-items    : center;
-    }
+    display         : flex;
+    justify-content : space-between;
+    //place-content   : center;
+    place-items     : center;
+    width           : 30rem;
 
+    &-main {
+      display       : flex;
+      place-content : space-evenly;
+      //place-items   : center;
+    }
   }
 
   &__label {
-    position : relative;
-    left     : 3.8rem;
+    position : absolute;
+    margin-left: 1.3rem;
   }
 
   &__icon {

@@ -6,6 +6,11 @@
   text-align  : center;
 }
 
+/* checkbox */
+.checkbox__container {
+  font-size : 1.6rem;
+}
+
 /* header */
 .header {
   font-size : 4rem;
@@ -19,6 +24,7 @@
 .input {
   font-size   : 1.4rem;
   font-weight : 300;
+  text-align  : center;
 
   &__label {
     color     : black;

@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<!--Todo: create tool tip for when user puts cursor over the circle in input.-->
+    <!--Todo: create tool tip for when user puts cursor over the circle in input.-->
     <div class="main-container">
 
         <!--- header --->
@@ -25,26 +25,28 @@
             </div>
         </header>
         <!--
+.input__container-main {
+  /* place-items: center; */
+}
+
+.input__container {
+  /* place-content: center; */
+}
 
     -->
         <!--- input --->
         <div class="input__container-main">
 
-            <div class="input__container-first">
+            <div class="input__container">
 
-                <label class="input__label" for="title">
-                    Title
-                </label>
-
+                <label class="input__label" for="title">Title</label>
                 <input class="input NA" type="text" id="title">
                 <i class='fas fa-circle input__icon first-icon'></i>
 
             </div>
 
-            <div class="input__container-second">
-                <label class="input__label" for="content">
-                    Task
-                </label>
+            <div class="input__container">
+                <label class="input__label" for="content">Task</label>
                 <input class="input NA" type="text" id="content">
                 <i class='fas fa-circle input__icon second-icon'></i>
             </div>
@@ -53,9 +55,19 @@
         <!--
 
     -->
-        <!--- btn.scss --->
-        <div class="btn__container">
-            <div class="btn">Create Todo</div>
+        <div class="options__container">
+
+            <!-- check boxes-->
+            <div class="checkbox__container">
+                <div class="checkbox"></div>
+                <label class="checkbox__label">Prioritize</label>
+            </div>
+
+            <!--- btn.scss --->
+            <div class="btn__container">
+
+                <div class="btn">Create Todo</div>
+            </div>
         </div>
 
         <!--- todos --->
