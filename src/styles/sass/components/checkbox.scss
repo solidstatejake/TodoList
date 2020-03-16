@@ -1,18 +1,19 @@
 .checkbox {
   background    : $light-light-grey;
   border-radius : 50%;
-  height        : 3rem;
-  margin        : auto;
-  width         : 3rem;
+  cursor        : pointer;
+  height        : 4rem;
+  width         : 4rem;
 
-  &__container {
+  &-container {
     align-items     : center;
     display         : flex;
+    font-size       : 1.6rem;
     justify-content : center;
     margin-left     : 3.5rem;
   }
 
-  &__label {
+  &-label {
     margin-left : 1.5rem;
   }
 }

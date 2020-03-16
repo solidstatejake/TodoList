@@ -1,101 +1,97 @@
-// Todo: Most of small-todo is same as big todo. Refactor.
-
-/* big _todo */
 .todo {
-  background    : $light-grey;
-  border-radius : 2px;
-  display       : flex;
-  margin        : 2rem 0;
-  padding       : 2rem;
+  align-items     : center;
+  background      : $light-grey;
+  border-radius   : 2px;
+  box-shadow      : 0 6px 6px rgba(0, 0, 0, 0.4);
+  display         : flex;
+  height          : 12rem;
+  justify-content : space-between;
+  margin          : 2rem 0;
+  padding         : 2rem;
+  place-content   : space-between;
+  place-items     : center;
 
-  &__container {
+  &-container {
+    color     : white;
     max-width : $max-app-width;
-  }
 
-  &__option {
-    &-container {
-      align-items    : center;
+    &-content {
       display        : flex;
       flex-direction : column;
-      margin-top     : 3rem;
+      max-width      : 46rem;
+      padding        : 2rem;
+      place-items    : center;
     }
 
-    &-complete, &-delete {
-      cursor : pointer;
+    &-edit {
+      width: 13rem;
     }
 
-    &-complete {
-
+    &-option {
+      align-items     : center;
+      display         : flex;
+      flex-direction  : column;
+      font-size       : 2rem;
+      height          : 100%;
+      justify-content : space-between;
     }
 
-    &-delete {
-      margin : 2rem 0;
-    }
-  }
+    &-info {
+      display   : flex;
+      max-width : 14.5rem;
 
-  &__info {
-    &-container {
-      display        : flex;
-      flex-direction : column;
-      margin-right   : 2rem;
+      &-edit {
+        display         : flex;
+        justify-content : space-between;
+        width           : 54rem;
+      }
     }
 
     &-title {
-      border-bottom : 1px solid white;
-      font-weight   : 400;
-    }
-  }
-
-  &__content {
-    &-container {
-      margin    : auto;
-      max-width : 46rem;
-    }
-  }
-}
-
-/* small _todo */
-.todo-sm {
-  height : 11rem;
-
-  &-info-container {
-    display   : flex;
-    max-width : 14.5rem;
-  }
-
-  &-title {
-    border-bottom : 1px solid white;
-    font-size     : 1.4rem;
-    font-weight   : 400;
-    height        : min-content;
-    max-width     : 14.5rem;
-    text-align    : center;
-    word-break    : break-word;
-
-    &-container {
       display        : flex;
       flex-direction : column;
     }
   }
 
   &-content {
-
-    &-container {
-      display     : flex;
-      place-items : center;
-    }
+    font-size   : 1.3rem;
+    line-height : 2rem;
+    word-break  : break-all;
   }
 
   &-option {
-    &-container {
-      align-items    : center;
-      display        : flex;
-      flex-direction : column;
-      font-size      : 2rem;
-      margin         : 0 3rem;
+
+    &-complete, &-delete, &-edit {
+      cursor : pointer;
+    }
+
+    &-complete {
+      color : $green;
+    }
+
+    &-delete {
+      color : $red;
+    }
+
+    &-edit {
+      color     : #c8cd3d;
+      font-size : 1.7rem;
     }
   }
 
+  &-title {
+    font-size   : 1.4rem;
+    font-weight : 400;
+    max-width   : 14.5rem;
+    text-align  : center;
+    word-break  : break-word;
+
+    &-info {
+      border-bottom : 1px solid white;
+      font-size     : 1.4rem;
+      font-weight   : 400;
+    }
+  }
 }
 
 

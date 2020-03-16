@@ -2,14 +2,36 @@
   border        : none;
   border-radius : 3px;
   flex-shrink   : 0;
+  font-size     : 1.4rem;
+  font-weight   : 300;
   height        : 6rem;
+  text-align    : center;
   width         : 30rem;
 
-  &__container {
+  &-edit {
+    border        : none;
+    border-radius : 3px;
+    flex-shrink   : 0;
+    font-size     : 1.4rem;
+    font-weight   : 300;
+    height        : 5rem;
+    text-align    : center;
+    width         : 35rem;
+
+  }
+
+  &-container {
     display         : flex;
     justify-content : space-between;
     place-items     : center;
     width           : 30rem;
+
+    &-edit {
+      display         : flex;
+      justify-content : space-between;
+      place-items     : center;
+      width           : 15rem;
+    }
 
     &-main {
       display       : flex;
@@ -17,13 +39,32 @@
     }
   }
 
-  &__label {
+  &-label {
+    color       : black;
+    font-size   : 1.2rem;
     position    : absolute;
     margin-left : 1.3rem;
+
+    &-edit {
+      color       : black;
+      font-size   : 1.2rem;
+      position    : absolute;
+      margin-left : 1.3rem;
+    }
   }
 
-  &__icon {
-    position : relative;
-    right    : 2.2rem;
+  &-icon {
+    color     : $blue;
+    font-size : 1.2rem;
+    position  : relative;
+    right     : 2.2rem;
+
+    &-edit {
+      color     : $blue;
+      font-size : 1.2rem;
+      position  : relative;
+      right     : 2.2rem;
+    }
   }
+
 }
