@@ -72,6 +72,7 @@ $('.btn').click(() => {
     if ($(`#checkbox-${ todo_id }`).hasClass('checked')) {
       $('#checkbox-modal').addClass('checked')
     }
+    else $('#checkbox-modal').removeClass('checked')
     $('.modal-coverup').fadeIn()
     $('.modal').attr('data-current-todo', todo_id).fadeIn()
   })

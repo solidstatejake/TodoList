@@ -27,8 +27,9 @@ $('#btn-edit').click(function () {
 
   $(`#title-${ todo_id }`).text(new_title)
   $(`#content-${ todo_id }`).text(new_content)
-  if ($(`#checkbox-modal`).hasClass('checked'))
+  if ($(`#checkbox-modal`).hasClass('checked')) {
     $(`#checkbox-${ todo_id }`).addClass('checked')
+  }
   $('.modal').fadeOut()
   $('.modal-coverup').fadeOut()
 
