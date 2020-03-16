@@ -47,9 +47,9 @@ $('.modal-coverup').click(function () {
 })
 
 $('.btn').click(() => {
-  title_input = $('#title').val()
+  title_input   = $('#title').val()
   content_input = $('#content').val()
-  prioritized = $('#prioritize-option').hasClass('checked')
+  prioritized   = $('#prioritize-option').hasClass('checked')
   $('.todo-container').append(todo(title_input, content_input, prioritized))
   const todo_count = count_todos() // used to identify the _todo and its children
 
@@ -58,14 +58,25 @@ $('.btn').click(() => {
   })
 
   $(`#complete-btn-${ todo_count }`).click(function () {
-    $(`#todo-${ todo_count }`).toggleClass('completed')
+    const todo_copy = $(`#todo-${ todo_count }`).clone(true, true)
+
+    $(`#todo-${ todo_count }`).slideUp(200)
+    //setTimeout so _todo doesn't fade before disappearing.
+    setTimeout(() => void $(`#todo-${ todo_count }`).slideUp(200)
+                                                    .toggleClass('completed'), 200)
+
+    todo_copy.attr('id', `todo-completed-${ todo_count }`)
+
+    $('.completed-container').prepend(todo_copy)
+    $(`#todo-completed-${ todo_count }`).toggleClass('completed').toggle().slideDown(200)
   })
 
   $(`#delete-btn-${ todo_count }`).click(function () {
     $(`#todo-${ todo_count }`).slideUp(200)
+    $(`#todo-completed-${ todo_count }`).slideUp(200)
   })
 
-  $(`#edit-btn-${ todo_count }`).click(function (todo_count) {
+  $(`#edit-btn-${ todo_count }`).click(function () {
     const todo_id = $(this).parents().eq(2).attr('id').replace('todo-', '')
     $('#title-edit').val($(`#title-${ todo_id }`).html())          //update title
     $('#content-edit').val($(`#content-${ todo_id }`).html())      //update content

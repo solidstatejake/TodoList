@@ -12,8 +12,9 @@
   place-items     : center;
 
   &-container {
-    color     : white;
-    max-width : $max-app-width;
+    border-bottom : .1px solid grey;
+    color         : white;
+    max-width     : $max-app-width;
 
     &-content {
       display        : flex;
@@ -24,7 +25,7 @@
     }
 
     &-edit {
-      width: 13rem;
+      width : 13rem;
     }
 
     &-option {
