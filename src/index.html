@@ -62,8 +62,8 @@
 
         <!--- todos --->
         <div class="todo-container">
-            <div class="todo">
-                <div class="checkbox  m-l-2" id="checkbox-1">
+            <!--<div class="todo">
+               <div class="checkbox  m-l-2" id="checkbox-1">
                 </div>
                 <div class="todo-container-info-edit">
 
@@ -97,68 +97,69 @@
                     </span>
                 </div>
 
-            </div>
+            </div>-->
         </div>
     </div>
-<!--
+    <!--
 
--->
+    -->
     <!-- modal  -->
     <div class="modal-coverup"></div>
 
-        <div class="modal-container">
+    <div class="modal">
 
-            <div class="modal-container-header">
-                <h2 class="modal-header">Edit</h2>
+        <div class="modal-container-header">
+            <h2 class="modal-header">Edit</h2>
+        </div>
+        <div class="modal-container-need-new-class-name">
+
+
+            <!-- options -->
+            <div class="modal-container-option">
+                <!-- checkbox -->
+                <div id="checkbox-modal" class="checkbox"></div>
+
+                <span class="todo-option-complete">
+                    <i id="complete-btn" class="fas fa-check"></i>
+                </span>
+                <span class="todo-option-delete">
+                    <i id="delete-btn" class="fas fa-times"></i>
+                </span>
+
             </div>
-            <div class="modal-container-need-new-class-name">
 
+            <div class="modal-container-input">
 
-                <!-- options -->
-                <div class="modal-container-option">
-                    <!-- checkbox -->
-                    <div id="checkbox-modal" class="checkbox"></div>
-
-                    <span class="todo-option-complete">
-                 <i id="complete-btn-${ todo_count }" class="fas fa-check"></i>
-            </span>
-                    <span class="todo-option-delete">
-                <i id="delete-btn-${ todo_count }" class="fas fa-times"></i>
-            </span>
-
-                </div>
-
-                <div class="modal-container-input">
-
-                    <div class="modal-container-info-edit">
-                        <!-- edit title-->
-                        <div class="modal-container-edit">
-                            <label class="input-label-edit" for="title-edit">Task</label>
-                            <input id="title-edit-${ todo_count }" class="input-edit NA"
-                                   type="text" value="${ title.html() }">
-                            <i class='fas fa-circle input-icon-edit'
-                               id="first-icon-edit-${ todo_count }"></i>
-                        </div>
-
-                        <!-- edit content -->
-                        <div class="modal-container-edit">
-                            <label class="input-label-edit"
-                                   for="content-edit">Task</label>
-                            <input id="content-edit-${ todo_count }" class="input-edit NA"
-                                   type="text" value="${ content.html() }">
-                            <i class='fas fa-circle input-icon-edit'
-                               id="second-icon-edit-${ todo_count }"></i>
-                        </div>
-
-                        <div id="btn-edit-${ todo_count }" class="btn-edit">Edit</div>
+                <div class="modal-container-info-edit">
+                    <!-- edit title-->
+                    <div class="modal-container-edit">
+                        <label class="input-label-edit" for="title-edit">Title</label>
+                        <input id="title-edit" class="input-edit NA"
+                               type="text">
+                        <i class='fas fa-circle input-icon-edit'
+                           id="first-icon-edit"></i>
                     </div>
 
+                    <!-- edit content -->
+                    <div class="modal-container-edit">
+                        <label class="input-label-edit"
+                               for="content-edit">Task</label>
+                        <input id="content-edit" class="input-edit NA"
+                               type="text">
+                        <i class='fas fa-circle input-icon-edit'
+                           id="second-icon-edit"></i>
+                    </div>
+
+                    <div id="btn-edit" class="btn-edit">Edit</div>
                 </div>
+
             </div>
         </div>
+    </div>
 
     <script
         src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src="scripts/modal.js"></script>
     <script src="scripts/input-handler.js"></script>
     <script src="scripts/checkbox-handler.js"></script>
     <script src="scripts/create-todo.js"></script>

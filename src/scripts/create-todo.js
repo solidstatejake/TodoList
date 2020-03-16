@@ -1,6 +1,5 @@
 let title_input, content_input, prioritized
 
-$('.modal-container').toggle()
 /*
  We don't have to subtract 1 from the count because count begins before
  new _todo is created.
@@ -42,93 +41,15 @@ const todo = (title, content, prioritized) => {
 </div>` )
 }
 
-// const handle_btn_edit_click = function (todo_count, prioritized) {
-//   let title   = $(`#title-${ todo_count }`)
-//   let content = $(`#content-${ todo_count }`)
-//
-//   const current_todo = $(`#todo-${ todo_count }`)
-//   let old_todo = current_todo.clone(true, true)
-//
-//   current_todo.replaceWith(`
-//        <div id="todo-${ todo_count }" class="todo">
-//           <!-- checkbox -->
-//           <div id="checkbox-${ todo_count }"
-//                class="checkbox ${ prioritized ? 'checked' : '' } m-l-2" ></div>
-//           <div class="todo-container-info-edit">
-//             <div class="todo-container-info-edit">
-//               <!-- edit title-->
-//               <div class="input-container-edit">
-//                   <label class="input-label-edit" for="title-edit">Task</label>
-//                   <input id="title-edit-${ todo_count }" class="input-edit NA" type="text" value="${ title.html() }">
-//                   <i class='fas fa-circle input-icon-edit'
-//                      id="first-icon-edit-${ todo_count }"></i>
-//               </div>
-//               <!-- edit content -->
-//               <div class="input-container-edit">
-//                   <label class="input-label-edit" for="content-edit">Task</label>
-//                   <input id="content-edit-${ todo_count }" class="input-edit NA" type="text" value="${ content.html() }">
-//                   <i class='fas fa-circle input-icon-edit'
-//                      id="second-icon-edit-${ todo_count }"></i>
-//               </div>
-//
-//               <div id="btn-edit-${ todo_count }" class="btn-edit">Edit</div>
-//
-//               </div>
-//           </div>
-//           <!-- options -->
-//           <div class="todo-container-option">
-//              <span class="todo-option-complete">
-//                   <i id="complete-btn-${ todo_count }" class="fas fa-check"></i>
-//              </span>
-//              <span class="todo-option-delete">
-//                   <i id="delete-btn-${ todo_count }" class="fas fa-times"></i>
-//              </span>
-//              <span class="todo-option-edit">
-//                   <i id="edit-btn-${ todo_count }" class="fas fa-pen"></i>
-//              </span>
-//           </div>
-//       </div>`)
-//   $(`#checkbox-${ todo_count }`).click(function () {
-//     $(`#checkbox-${ todo_count }`).toggleClass('checked')
-//   })
-//
-//   $(`#complete-btn-${ todo_count }`).click(function () {
-//     $(`#todo-${ todo_count }`).addClass('completed')
-//   })
-//
-//   $(`#delete-btn-${ todo_count }`).click(function () {
-//     $(`#todo-${ todo_count }`).slideUp(500)
-//   })
-//
-//   $(`#edit-btn-${ todo_count }`).click(() => handle_btn_edit_click(todo_count))
-//
-//   const edited_title = $(`#title-edit-${todo_count}`)
-//   const edited_content = $(`#content-edit-${todo_count}`)
-//   console.dir("edited_title.val(): " +edited_title.val())
-//   console.dir("edited_title.html(): " +edited_title.html())
-//   console.dir("edited_title.text(): " +edited_title.text())
-//   $(`#btn-edit-${ todo_count }`).click(() => {
-//     // const prioritized = $(`checkbox-${ todo_count }`).hasClass('checked')
-//     $(`#title-${ todo_count }`).val($(`#title-edit-${todo_count}`).val())
-//     $(`#content-${ todo_count }`).val($(`#content-edit-${todo_count}`).val())
-//     $(`#todo-${ todo_count }`).replaceWith(old_todo)
-//   })
-// }
-
-$('.modal-coverup').click(function() {
-  $('.modal-container').fadeOut()
-  // .animate({
-  //   height: 0,
-  //   opacity: 0,
-  //   top:0
-  // }, 750);
+$('.modal-coverup').click(function () {
+  $('.modal').fadeOut()
   $(this).fadeOut()
 })
 
 $('.btn').click(() => {
-  title_input   = $('#title').val()
+  title_input = $('#title').val()
   content_input = $('#content').val()
-  prioritized   = $('#prioritize-option').hasClass('checked')
+  prioritized = $('#prioritize-option').hasClass('checked')
   $('.todo-container').append(todo(title_input, content_input, prioritized))
   const todo_count = count_todos() // used to identify the _todo and its children
 
@@ -137,16 +58,22 @@ $('.btn').click(() => {
   })
 
   $(`#complete-btn-${ todo_count }`).click(function () {
-    $(`#todo-${ todo_count }`).addClass('completed')
+    $(`#todo-${ todo_count }`).toggleClass('completed')
   })
 
   $(`#delete-btn-${ todo_count }`).click(function () {
     $(`#todo-${ todo_count }`).slideUp(200)
   })
 
-  $(`#edit-btn-${ todo_count }`).click(function () {
+  $(`#edit-btn-${ todo_count }`).click(function (todo_count) {
+    const todo_id = $(this).parents().eq(2).attr('id').replace('todo-', '')
+    $('#title-edit').val($(`#title-${ todo_id }`).html())          //update title
+    $('#content-edit').val($(`#content-${ todo_id }`).html())      //update content
+    if ($(`#checkbox-${ todo_id }`).hasClass('checked')) {
+      $('#checkbox-modal').addClass('checked')
+    }
     $('.modal-coverup').fadeIn()
-    $('.modal-container').fadeIn()
+    $('.modal').attr('data-current-todo', todo_id).fadeIn()
   })
 
   // toggle before slidedown so that element appears, not disappears.
