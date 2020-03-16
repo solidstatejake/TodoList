@@ -15,8 +15,16 @@ $('#delete-btn').click(function () {
 
 /* complete button */
 $('#complete-btn').click(function () {
-  const todo_id = $(this).parents().eq(3).attr('data-current-todo')
-  $(`#todo-${ todo_id }`).toggleClass('completed')
+  const todo_id   = $(this).parents().eq(3).attr('data-current-todo')
+  const todo_copy = $(`#todo-${ todo_id }`).clone(true, true)
+
+  $(`#todo-${ todo_id }`).slideUp(200)
+  //setTimeout so _todo doesn't fade before disappearing.
+  setTimeout(() => void $(`#todo-${ todo_id }`).toggleClass('completed'), 200)
+  todo_copy.attr('id', `todo-completed-${ todo_id }`)
+  $('.completed-container').prepend(todo_copy)
+  $(`#todo-completed-${ todo_id }`).toggleClass('completed').toggle().slideDown(200)
+  $('.modal-coverup, .modal').fadeOut()
 })
 
 /* edit button */
