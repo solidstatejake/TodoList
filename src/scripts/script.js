@@ -11,11 +11,6 @@ const red    = '#ba4e4e',
       blue   = '#3267b8',
       orange = '#be6c15'
 
-/* _todo */
-
-
-/* Button */
-
 const determine_input_validity = () => {
   if (valid.title === 'yes' && valid.content === 'yes') valid.both = 'yes'
   else if (valid.title === 'no' || valid.content === 'no') valid.both = 'no'
@@ -103,4 +98,3 @@ const handle_content_keyup = () => {
 
 title.keyup(handle_title_keyup)
 content.keyup(handle_content_keyup)
-

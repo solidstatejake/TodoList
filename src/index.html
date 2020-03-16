@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel='stylesheet'
           href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
-    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <title>Document</title>
 </head>
@@ -17,130 +16,150 @@
     <div class="main-container">
 
         <!--- header --->
-        <header class="header__container">
+        <header class="header-container">
             <h1 class="header">DoWop</h1>
-            <div class="instructions">
-                <p class="instructions-txt">
+            <div>
+                <p>
                     Just enter your todo! Click the checkbox next to the todo when it's
                     been completed.
                 </p>
             </div>
         </header>
-        <!--
 
-    -->
         <!--- input --->
-        <div class="input__container-main">
+        <div class="input-container-main">
 
-            <div class="input__container">
+            <div class="input-container">
 
-                <label class="input__label" for="title">Title</label>
+                <label class="input-label" for="title">Title</label>
                 <input class="input NA" type="text" id="title">
-                <i class='fas fa-circle input__icon first-icon'></i>
+                <i class='fas fa-circle input-icon' id="first-icon"></i>
 
             </div>
 
-            <div class="input__container">
-                <label class="input__label" for="content">Task</label>
+            <div class="input-container">
+                <label class="input-label" for="content">Task</label>
                 <input class="input NA" type="text" id="content">
-                <i class='fas fa-circle input__icon second-icon'></i>
+                <i class='fas fa-circle input-icon' id="second-icon"></i>
             </div>
         </div>
 
         <!--button and prioritize-->
-        <div class="options__container">
+        <div class="options-container">
 
             <!-- check boxes-->
-            <div class="checkbox__container">
+            <div class="checkbox-container">
                 <div class="checkbox" id="prioritize-option"></div>
-                <label class="checkbox__label">Prioritize</label>
+                <label class="checkbox-label">Prioritize</label>
             </div>
 
             <!--- btn.scss --->
-            <div class="btn__container">
+            <div class="btn-container">
                 <div class="btn">Create Todo</div>
             </div>
 
         </div>
 
         <!--- todos --->
-        <div class="todo__container">
+        <div class="todo-container">
+            <div class="todo">
+                <div class="checkbox  m-l-2" id="checkbox-1">
+                </div>
+                <div class="todo-container-info-edit">
 
-            <div class="todo" ̌̌>
-
-                <!-- _todo stats -->
-                <div class="todo__info-container">
-
-                    <span class='todo__info-title'>I am a title</span>
-
-                    <!-- _todo options -->
-                    <div class="todo__option-container">
-
-                        <span class="todo__option-complete">
-                          <i class="fas fa-check"></i>
-                        </span>
-
-                        <span class="todo__option-delete">
-                          <i class="fas fa-times"></i>
-                        </span>
-
-                        <div class="checkbox"></div>
-
+                    <div class="input-container-edit">
+                        <label class="input-label-edit" for="title-edit">Task</label>
+                        <input class="input-edit NA" type="text" id="title-edit">
+                        <i class='fas fa-circle input-icon-edit'
+                           id="first-icon-edit"></i>
                     </div>
+
+                    <div class="input-container-edit">
+                        <label class="input-label-edit" for="content-edit">Task</label>
+                        <input class="input-edit NA" type="text" id="content-edit">
+                        <i class='fas fa-circle input-icon-edit'
+                           id="second-icon-edit"></i>
+                    </div>
+
+                    <div class="btn-edit">Edit</div>
 
                 </div>
 
-                <!-- _todo content -->
-                <span class="todo__content-container">
-                  <p class="todo__content">
-<!--                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat est minus unde ut eos debitis nobis, ipsam iure nihil quasi dolorum fugiat qui eveniet aliquam. Adipisci dolorem quae magnam distinctio eos! Voluptas quas a facilis quidem quasi deserunt explicabo maiores dolorum voluptates, dicta molestias repudiandae rem necessitatibus magnam omnis delectus sapiente iste excepturi officia eos, inventore laborum? Distinctio recusandae laboriosam nisi veritatis cum inventore. Eius hic facilis dolorem provident in facere iusto eaque aperiam totam consequatur, natus incidunt saepe, corrupti voluptate? Placeat assumenda commodi similique autem nam quas suscipit dolorum ipsum reiciendis consequatur, quo, quasi sequi est aliquam modi quaerat!-->
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor.Aspernatur culpa ea facere inventore iure, laudantium maxime molestiae, nam nobis omnis placeat provident quae quibusdam quo recusandae saepe soluta totam velit?
-                  </p>
-                </span>
+                <div class="todo-container-option">
+                   <span class="todo-option-complete">
+                     <i class="fas fa-check" id="complete-btn-1"></i>
+                   </span>
+                    <span class="todo-option-delete">
+                     <i class="fas fa-times" id="delete-btn-1"></i>
+                    </span>
+                    <span class="todo-option-edit">
+                        <i class="fas fa-pen" id="edit-btn-1"></i>
+                    </span>
+                </div>
+
             </div>
+        </div>
+    </div>
 <!--
 
 -->
-            <!-- 2nd _todo -->
-            <div class="todo">
+    <!-- modal  -->
+    <div class="modal-coverup"></div>
 
-                <div class="todo-sm-info-container">
+        <div class="modal-container">
 
-                    <div class="todo-sm-title-container">
-                        <span class='todo-sm-title'>here it goes </span>
-                        <div class="checkbox"></div>
-                    </div>
+            <div class="modal-container-header">
+                <h2 class="modal-header">Edit</h2>
+            </div>
+            <div class="modal-container-need-new-class-name">
 
-                    <!-- _todo options -->
-                    <div class="todo-sm-option-container">
 
-                        <span class="todo__option-complete">
-                          <i class="fas fa-check"></i>
-                        </span>
+                <!-- options -->
+                <div class="modal-container-option">
+                    <!-- checkbox -->
+                    <div id="checkbox-modal" class="checkbox"></div>
 
-                        <span class="todo__option-delete">
-                          <i class="fas fa-times"></i>
-                        </span>
-
-                    </div>
+                    <span class="todo-option-complete">
+                 <i id="complete-btn-${ todo_count }" class="fas fa-check"></i>
+            </span>
+                    <span class="todo-option-delete">
+                <i id="delete-btn-${ todo_count }" class="fas fa-times"></i>
+            </span>
 
                 </div>
 
-                <!--_todo content-->
-                <span class="todo-sm-content-container">
-                  <p class="todo__content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, nulla.
-                  </p>
-                </span>
+                <div class="modal-container-input">
 
+                    <div class="modal-container-info-edit">
+                        <!-- edit title-->
+                        <div class="modal-container-edit">
+                            <label class="input-label-edit" for="title-edit">Task</label>
+                            <input id="title-edit-${ todo_count }" class="input-edit NA"
+                                   type="text" value="${ title.html() }">
+                            <i class='fas fa-circle input-icon-edit'
+                               id="first-icon-edit-${ todo_count }"></i>
+                        </div>
+
+                        <!-- edit content -->
+                        <div class="modal-container-edit">
+                            <label class="input-label-edit"
+                                   for="content-edit">Task</label>
+                            <input id="content-edit-${ todo_count }" class="input-edit NA"
+                                   type="text" value="${ content.html() }">
+                            <i class='fas fa-circle input-icon-edit'
+                               id="second-icon-edit-${ todo_count }"></i>
+                        </div>
+
+                        <div id="btn-edit-${ todo_count }" class="btn-edit">Edit</div>
+                    </div>
+
+                </div>
             </div>
-
         </div>
-    </div>
 
     <script
         src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/input-handler.js"></script>
     <script src="scripts/checkbox-handler.js"></script>
     <script src="scripts/create-todo.js"></script>
 </body>
