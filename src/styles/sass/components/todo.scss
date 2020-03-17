@@ -1,18 +1,19 @@
 .todo {
-  align-items     : center;
-  background      : $light-grey;
-  border-radius   : 2px;
-  box-shadow      : 0 6px 6px rgba(0, 0, 0, 0.4);
-  display         : flex;
-  height          : 12rem;
-  justify-content : space-between;
-  margin          : 2rem 0;
-  padding         : 2rem;
-  place-content   : space-between;
-  place-items     : center;
+  align-items: center;
+  background: $light-grey;
+  border-radius: 2px;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.4);
+  cursor: grab;
+  display: flex;
+  height: 12rem;
+  justify-content: space-between;
+  margin: 2rem 0;
+  padding: 2rem;
+  place-content: space-between;
+  place-items: center;
 
   &-container {
-    border-bottom : .1px solid grey;
+    border-bottom: .1px solid grey;
     color         : white;
     max-width     : $max-app-width;
 
