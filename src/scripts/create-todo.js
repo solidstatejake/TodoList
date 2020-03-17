@@ -81,20 +81,20 @@ const complete_todo = function () {
   //setTimeout so _todo doesn't fade before disappearing.
   todo_copy.attr( "id", `todo-completed-${ todo_id }` )
   $( ".completed-container" ).prepend( todo_copy )
-  $( `#todo-completed-${ todo_id }` ).toggleClass( "completed" ).toggle().slideDown( 200 )
-  $( `#todo-${ todo_id }` ).attr( "id", `todo-completed-${ todo_id }` )
-  $( `#sortable  ` ) //
+  todo_copy.toggleClass( "completed" ).toggle().slideDown( 200 )
+  $( `#todo-${ todo_id }` ).slideUp( 200, function () {$( this ).detach()} ) //
 }
 
 const delete_todo = function () {
-  const todo_id = $( this ).parents().eq( 2 ).attr( "id" ).replace( "todo-", "" )
+  const todo_id        = $( this ).parents().eq( 2 ).attr( "id" ).replace( "todo-", "" )
+  const todo           = $( `#todo-${ todo_id }` )
+  const completed_todo = $( `#todo-completed-${ todo_id }` )
 
-  $( `#todo-${ todo_id }` ).slideUp( 200 )
-  $( `#todo-completed-${ todo_id }` ).slideUp( 200 )
-
+  todo.slideUp( 200 )
+  completed_todo.slideUp( 200 )
   setTimeout( () => {
-    $( `#todo-${ todo_id }` ).detach()
-    $( `#todo-completed-${ todo_id }` ).detach()
+    todo.detach()
+    completed_todo.detach()
   }, 200 )
 }
 
