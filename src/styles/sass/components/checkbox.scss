@@ -1,23 +1,23 @@
 .checkbox {
-  background    : $light-light-grey;
-  border-radius : 50%;
-  cursor        : pointer;
-  height        : 4rem;
-  width         : 4rem;
+    background    : $light-light-grey;
+    border-radius : 50%;
+    cursor        : pointer;
+    height        : 4rem;
+    width         : 4rem;
 
-  &-container {
-    align-items     : center;
-    display         : flex;
-    font-size       : 1.6rem;
-    justify-content : center;
-    margin-left     : 3.5rem;
-  }
+    &-container {
+        align-items     : center;
+        display         : flex;
+        font-size       : 1.6rem;
+        justify-content : center;
+        margin-right    : 3.5rem;
+        }
 
-  &-label {
-    margin-left : 1.5rem;
-  }
-}
+    &-label {
+        margin-left : 1.5rem;
+        }
+    }
 
 .checked {
-  background-color : $orange;
-}
+    background-color : $orange;
+    }

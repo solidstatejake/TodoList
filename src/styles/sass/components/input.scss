@@ -1,71 +1,78 @@
 .input {
-  border: none;
-  border-radius: 3px;
-  flex-shrink: 0;
-  font-size: 1.4rem;
-  font-weight: 300;
-  height: 6rem;
-  outline: none;
-  text-align: center;
-  width: 30rem;
-
-  &-edit {
-    border: none;
-    border-radius: 3px;
-    flex-shrink: 0;
-    font-size: 1.4rem;
-    font-weight: 300;
-    height: 5rem;
-    text-align    : center;
-    width         : 35rem;
-
-  }
-
-  &-container {
-    display         : flex;
-    justify-content : space-between;
-    place-items     : center;
-    width           : 30rem;
+    border      : none;
+    font-size   : 1.4rem;
+    font-weight : 300;
+    height      : 6rem;
+    margin-left : 4.5rem;
+    outline     : none;
+    text-align  : center;
+    width       : 37rem;
 
     &-edit {
-      display         : flex;
-      justify-content : space-between;
-      place-items     : center;
-      width           : 15rem;
+        border        : none;
+        border-radius : 3px;
+        flex-shrink   : 0;
+        font-size     : 1.4rem;
+        font-weight   : 300;
+        height        : 5rem;
+        text-align    : center;
+        width         : 35rem;
+
+        }
+
+    &-container {
+        background      : white;
+        border-radius   : 3px 3px 0 0;
+        box-shadow      : 0 6px 6px rgba(0, 0, 0, 0.4);
+        display         : flex;
+        justify-content : space-between;
+        place-items     : center;
+        width           : 46rem;
+
+        &-edit {
+            display         : flex;
+            justify-content : space-between;
+            place-items     : center;
+            width           : 15rem;
+            }
+
+        &-main {
+            display         : flex;
+            flex-direction  : column;
+            justify-content : space-between;
+            height          : 100%;
+            place-content   : space-between;
+            place-items     : baseline;
+            }
+        }
+
+    &-label {
+
+        color       : black;
+        font-size   : 1.2rem;
+        position    : absolute;
+        margin-left : 1.3rem;
+
+        &-edit {
+            color       : black;
+            font-size   : 1.2rem;
+            position    : absolute;
+            margin-left : 1.3rem;
+            }
+        }
+
+    &-icon {
+        color     : $blue;
+        font-size : 1.2rem;
+        position  : relative;
+        right     : 2.2rem;
+
+        &-edit {
+            color     : $blue;
+            font-size : 1.2rem;
+            position  : relative;
+            right     : 2.2rem;
+            }
+        }
+
     }
-
-    &-main {
-      display       : flex;
-      place-content : space-evenly;
-    }
-  }
-
-  &-label {
-    color       : black;
-    font-size   : 1.2rem;
-    position    : absolute;
-    margin-left : 1.3rem;
-
-    &-edit {
-      color       : black;
-      font-size   : 1.2rem;
-      position    : absolute;
-      margin-left : 1.3rem;
-    }
-  }
-
-  &-icon {
-    color     : $blue;
-    font-size : 1.2rem;
-    position  : relative;
-    right     : 2.2rem;
-
-    &-edit {
-      color     : $blue;
-      font-size : 1.2rem;
-      position  : relative;
-      right     : 2.2rem;
-    }
-  }
-
-}
