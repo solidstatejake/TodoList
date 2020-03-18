@@ -1,14 +1,11 @@
 .header {
-    &-container {
-        border-bottom  : .3px solid gray;
-        display        : flex;
-        flex-direction : column;
-        font-size      : 2rem;
-        padding-bottom : 2rem;
-        place-items    : center;
-        place-content  : center;
-        }
-
     font-size : 4rem;
     margin    : 3rem;
+    
+    &-container {
+        @include flex($dir : column);
+        border-bottom  : .3px solid gray;
+        font-size      : 2rem;
+        padding-bottom : 2rem;
     }
+}

@@ -1,9 +1,6 @@
 .creation-container {
-    align-items     : center;
-    border-bottom   : .1px solid grey;
-    display         : flex;
-    flex-direction  : column;
-    height          : 30rem;
-    justify-content : space-between;
-    padding         : 2rem 0;
-    }
+    @include flex($dir : column, $justify : space-between);
+    border-bottom : .1px solid grey;
+    height        : 30rem;
+    padding       : 2rem 0;
+}

@@ -16,11 +16,9 @@
         max-width     : $max-app-width;
         
         &-content {
-            align-self     : flex-start;
-            display        : flex;
-            flex-direction : column;
-            max-width      : 46rem;
-            padding        : 2rem;
+            align-self : flex-start;
+            max-width  : 46rem;
+            padding    : 2rem;
         }
         
         &-edit {
@@ -44,24 +42,15 @@
             text-align  : center;
             
             &-edit {
-                display         : flex;
-                justify-content : space-between;
-                width           : 54rem;
+                @include flex($align : none, $justify : space-between);
+                width : 54rem;
             }
         }
         
         &-option {
-            align-items     : center;
-            display         : flex;
-            flex-direction  : column;
-            font-size       : 2rem;
-            height          : 10rem;
-            justify-content : space-between;
-        }
-        
-        &-title {
-            display        : flex;
-            flex-direction : column;
+            @include flex($dir : column, $justify : space-between);
+            font-size : 2rem;
+            height    : 10rem;
         }
     }
     
@@ -86,26 +75,20 @@
         }
         
         &-edit {
-            color     : #c8cd3d;
+            color     : $yellow;
             font-size : 1.7rem;
         }
     }
     
     &-title {
-        font       : {
-            size   : 1.4rem;
-            weight : 400;
-        }
+        @include font(1.4rem, 400);
         max-width  : 14.5rem;
         text-align : center;
         word-break : break-word;
-        
+    
         &-info {
             border-bottom : 1px solid white;
-            font       : {
-                size   : 1.4rem;
-                weight : 400;
-            }
+            @include font(1.4rem, 400);
         }
     }
 }
@@ -114,14 +97,14 @@
 /* Classes for JavaScript manip */
 
 .NA {
-    border-bottom : 5px solid #3267b8;
+    @include input-border($blue);
 }
 
 .valid {
-    border-bottom : 5px solid #339635;
+    @include input-border($green);
 }
 
 .invalid {
-    border-bottom : 5px solid #ba4e4e;
+    @include input-border($red);
 }
 

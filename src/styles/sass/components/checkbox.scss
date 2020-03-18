@@ -1,19 +1,20 @@
 .checkbox {
-    background    : $light-light-grey;
-    border-radius : 50%;
-    cursor        : pointer;
-    height        : 4rem;
-    width         : 4rem;
+    @include circle(4rem);
+    background : $light-light-grey;
+    cursor     : pointer;
     
     &-container {
-        align-items     : center;
-        display         : flex;
-        font-size       : 1.6rem;
-        justify-content : center;
+        @include flex;
+        font-size : 1.6rem;
     }
     
     &-label {
         margin-left : 1.5rem;
+    }
+    
+    &-modal {
+        @extend .checkbox;
+        margin-bottom : 1.5rem;
     }
 }
 

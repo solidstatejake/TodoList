@@ -1,0 +1,46 @@
+@mixin absolute-center($pos: absolute) {
+    left      : 50%;
+    position  : $pos;
+    top       : 50%;
+    transform : translate(-50%, -50%);
+}
+
+@mixin circle($side-length) {
+    border-radius : 50%;
+    height        : $side-length;
+    width         : $side-length;
+}
+
+@mixin dimensions($height, $width) {
+    height : $height;
+    width  : $width;
+}
+
+@mixin flex($dir: row, $align: center, $justify: center) {
+    align-items     : $align;
+    display         : flex;
+    flex-direction  : $dir;
+    justify-content : $justify;
+}
+
+@mixin font($size, $weight) {
+    font       : {
+        size   : $size;
+        weight : $weight;
+    }
+}
+
+@mixin input-border($color) {
+    border-bottom : 5px solid $color;
+}
+
+@mixin reset-input {
+    border  : none;
+    outline : none;
+}
+
+@mixin v-align-text($height) {
+    height      : $height;
+    line-height : $height;
+}
+
