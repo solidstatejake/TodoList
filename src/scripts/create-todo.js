@@ -84,9 +84,8 @@ const delete_todo = function () {
 
 const edit_todo = function () {
   const todo_id = $( this ).parents().eq( 2 ).attr( 'id' ).replace( 'todo-', '' )
-  
-  $( '#title-edit' ).val( $( `#title-${ todo_id }` ).html() )
-  $( '#content-edit' ).val( $( `#content-${ todo_id }` ).html() )
+  $( '#title-edit' ).val( $( `#title-${ todo_id }` ).text().trim() )
+  $( '#content-edit' ).val( $( `#content-${ todo_id }` ).text().trim() )
   if ( $( `#checkbox-${ todo_id }` ).hasClass( 'checked' ) ) {
     $( '#checkbox-modal' ).addClass( 'checked' )
   } else {
