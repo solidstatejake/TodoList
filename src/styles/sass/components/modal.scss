@@ -8,7 +8,7 @@
     justify-content : space-between;
     left            : 50%;
     padding         : 2rem 3rem;
-    position        : absolute;
+    position        : fixed;
     top             : 50%;
     transform       : translate(-50%, -50%);
     width           : 62rem;
@@ -76,7 +76,7 @@
         background : rgba(0, 0, 0, 0.5);
         display    : none;
         height     : 100vh;
-        position   : absolute;
+        position   : fixed;
         width      : 100vw;
         z-index    : $modal-coverup-z-index;
     }
