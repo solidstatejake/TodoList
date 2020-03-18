@@ -137,50 +137,46 @@ const determine_input_edit_validity = () => {
 }
 
 const update_btn_edit_styles = () => {
-  let style = { background : "", color : "" }
+  let style = { background: '', color: '' }
   determine_input_edit_validity()
   switch ( valid_edit.both ) {
-    case "yes":
+    case 'yes':
       style.background = green
       break
-    case "incomplete":
+    case 'incomplete':
       style.background = orange
       break
-    case "no":
+    case 'no':
       style.background = red
       break
-    case "NA":
+    case 'NA':
     default:
       style.background = blue
   }
-  $( ".btn-edit" ).css( "background", style.background )
+  $( '#btn-edit' ).css( 'background', style.background )
 }
 
-
 const handle_title_edit_keyup = () => {
-  if (
-      0 < title_edit.val().length &&
-      ( title_edit.val().length < 3 || title_edit.val().length > 10 )
+  if ( 0 < title_edit.val().length && ( title_edit.val().length < 3 ||
+                                        title_edit.val().length > 10 )
   ) {
-    title_edit.parent().addClass( "invalid" )
-    title_edit.parent().removeClass( "valid" )
-    title_edit.parent().removeClass( "NA" )
-    $( "#first-icon-edit" ).css( "color", red )
-    valid_edit.title = "no"
-  }
-  else if ( 3 <= title_edit.val().length && title_edit.val().length <= 10 ) {
-    title_edit.parent().removeClass( "invalid" )
-    title_edit.parent().addClass( "valid" )
-    title_edit.parent().removeClass( "NA" )
-    $( "#first-icon-edit" ).css( "color", green )
-    valid_edit.title = "yes"
-  }
-  else if ( title_edit.val().length === 0 ) {
-    title_edit.parent().removeClass( "invalid" )
-    title_edit.parent().removeClass( "valid" )
-    title_edit.parent().addClass( "NA" )
-    $( "#first-icon-edit" ).css( "color", blue )
-    valid_edit.title = "NA"
+    title_edit.parent().addClass( 'invalid' )
+    title_edit.parent().removeClass( 'valid' )
+    title_edit.parent().removeClass( 'NA' )
+    $( '#first-icon-edit' ).css( 'color', red )
+    valid_edit.title = 'no'
+  } else if ( 3 <= title_edit.val().length && title_edit.val().length <= 10 ) {
+    title_edit.parent().removeClass( 'invalid' )
+    title_edit.parent().addClass( 'valid' )
+    title_edit.parent().removeClass( 'NA' )
+    $( '#first-icon-edit' ).css( 'color', green )
+    valid_edit.title = 'yes'
+  } else if ( title_edit.val().length === 0 ) {
+    title_edit.parent().removeClass( 'invalid' )
+    title_edit.parent().removeClass( 'valid' )
+    title_edit.parent().addClass( 'NA' )
+    $( '#first-icon-edit' ).css( 'color', blue )
+    valid_edit.title = 'NA'
   }
   update_btn_edit_styles()
 }
