@@ -1,15 +1,14 @@
-/* colors */
-$dark-grey        : #252525;
-$red              : #ba4e4e;
-$green            : #339635;
-$blue             : #3267b8;
-$orange           : #be6c15;
-$yellow           : #c8cd3d;
-$max-app-width    : 710rem;
+$red                   : #ba4e4e;
+$green                 : #339635;
+$blue                  : #3267b8;
+$orange                : #be6c15;
+$yellow                : #c8cd3d;
+$dark-grey             : #252525;
+$light-grey            : #343434;
+$light-light-grey      : #565656;
 
-/* _todo */
-$light-grey       : #343434;
-$light-light-grey : #565656;
-
-/* button */
-$btn-height       : 4.5rem;
+$btn-height            : 4.5rem;
+$max-app-width         : 710rem;
+$modal-z-index         : 3;
+$modal-coverup-z-index : $modal-z-index - 1;
+$todo-headers-z-index  : $modal-coverup-z-index - 1;

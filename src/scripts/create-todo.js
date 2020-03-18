@@ -1,21 +1,12 @@
-//Use a set to keep track of _todo ids. Should not be more than one of each.
-let todos = new Set()
-//Complete todo is leaving behind a ghost todo in .todo-container.
-/*
- We don't have to subtract 1 from the count because count begins before
- new _todo is created.
- */
-const count_todos = () => {
-  return $( ".todo" ).length
-}
+const count_todos = () => $( '.todo' ).length
 
 const generate_todo = ( title, content, prioritized ) => {
   const n = count_todos() + 1
   return (
-      `<div id="todo-${ n }" class="todo" > 
+      `<div id="todo-${ n }" class="todo" >
 
 <!-- checkbox -->
-<div id="checkbox-${ n }" class="checkbox ${ prioritized ? "checked" : "" } m-l-2"></div>
+<div id="checkbox-${ n }" class="checkbox ${ prioritized ? 'checked' : '' } m-l-2"></div>
 
 <!-- title -->
 <div class="todo-container-info">
@@ -47,108 +38,99 @@ const generate_todo = ( title, content, prioritized ) => {
 }
 
 const remove_modal = function () {
-  $( ".modal" ).fadeOut()
+  $( '.modal' ).fadeOut()
   $( this ).fadeOut()
 }
 
 const prioritize_todo = function () {
-  $( this ).toggleClass( "checked" )
-
+  $( this ).toggleClass( 'checked' )
+  
   const parent_todo = $( this ).parent()
   const clone       = parent_todo.clone( true, true )
-
-  if ( $( this ).hasClass( "checked" ) ) {
-    clone.attr( "data-checked", "true" )
+  
+  if ( $( this ).hasClass( 'checked' ) ) {
+    clone.attr( 'data-checked', 'true' )
     parent_todo.slideUp( 200, function () { $( this ).detach()} )
-    $( ".todo-container" ).prepend( clone )
+    $( '.todo-container' ).prepend( clone )
     clone.toggle().slideDown( 200 )
-  }
-  else {
-    clone.attr( "data-checked", "false" )
+  } else {
+    clone.attr( 'data-checked', 'false' )
     parent_todo.slideUp( 200, function () {$( this ).detach()} )
-    $( `.todo[data-checked='true']` ).last().after( clone )
+    $( `.todo-container .todo[data-checked='true']` ).last().after( clone )
     clone.toggle().slideDown( 200 )
   }
 }
 
 const complete_todo = function () {
-  const todo_id      = $( this ).parents().eq( 2 ).attr( "id" ).replace( "todo-", "" )
+  const todo_id      = $( this ).parents().eq( 2 ).attr( 'id' ).replace( 'todo-', '' )
   const current_todo = $( `#todo-${ todo_id }` )
-  const todo_copy    = current_todo.clone( true, true )
-
-  current_todo.slideUp( 200, function () {current_todo.toggleClass( "completed" )} )
-
-  //setTimeout so _todo doesn't fade before disappearing.
-  todo_copy.attr( "id", `todo-completed-${ todo_id }` )
-  $( ".completed-container" ).prepend( todo_copy )
-  todo_copy.toggleClass( "completed" ).toggle().slideDown( 200 )
-  $( `#todo-${ todo_id }` ).slideUp( 200, function () {$( this ).detach()} ) //
+  const clone        = current_todo.clone( true, true )
+  
+  current_todo.slideUp( 200, function () {$( this ).toggleClass( 'completed' )} )
+  clone.attr( 'id', `todo-completed-${ todo_id }` )
+  $( '#completed-container' ).prepend( clone )
+  clone.toggleClass( 'completed' ).toggle().slideDown( 200 )
+  $( `#todo-${ todo_id }` ).slideUp( 200, function () {
+    $( this ).detach()
+    $( `#edit-btn-${ todo_id }, #checkbox-${ todo_id }` ).off().css( 'cursor', 'default' )
+  } )
 }
 
 const delete_todo = function () {
-  const todo_id        = $( this ).parents().eq( 2 ).attr( "id" ).replace( "todo-", "" )
-  const todo           = $( `#todo-${ todo_id }` )
-  const completed_todo = $( `#todo-completed-${ todo_id }` )
-
-  todo.slideUp( 200 )
-  completed_todo.slideUp( 200 )
-  setTimeout( () => {
-    todo.detach()
-    completed_todo.detach()
-  }, 200 )
+  const todo_id = $( this ).parents().eq( 2 ).attr( 'id' ).replace( 'todo-', '' )
+  
+  $( `#todo-${ todo_id }, #todo-completed-${ todo_id }` ).slideUp( 200, function () {
+    $( this ).remove()
+  } )
 }
 
 const edit_todo = function () {
-  const todo_id = $( this ).parents().eq( 2 ).attr( "id" ).replace( "todo-", "" )
-  $( "#title-edit" ).val( $( `#title-${ todo_id }` ).html() )          //update
-                                                                       // title
-  $( "#content-edit" ).val( $( `#content-${ todo_id }` ).html() )      //update
-                                                                       // content
-  if ( $( `#checkbox-${ todo_id }` ).hasClass( "checked" ) ) {
-    $( "#checkbox-modal" ).addClass( "checked" )
+  const todo_id = $( this ).parents().eq( 2 ).attr( 'id' ).replace( 'todo-', '' )
+  
+  $( '#title-edit' ).val( $( `#title-${ todo_id }` ).html() )
+  $( '#content-edit' ).val( $( `#content-${ todo_id }` ).html() )
+  if ( $( `#checkbox-${ todo_id }` ).hasClass( 'checked' ) ) {
+    $( '#checkbox-modal' ).addClass( 'checked' )
+  } else {
+    $( '#checkbox-modal' ).removeClass( 'checked' )
   }
-  else {
-    $( "#checkbox-modal" ).removeClass( "checked" )
-  }
-  $( ".modal-coverup" ).fadeIn()
-  $( ".modal" ).attr( "data-current-todo", todo_id ).fadeIn()
+  $( '.modal-coverup' ).fadeIn()
+  $( '.modal' ).attr( 'data-current-todo', todo_id ).fadeIn()
 }
 
 const create_todo = function () {
-  /* variables */
-  const title_input    = $( "#title" ).val()
-  const content_input  = $( "#content" ).val()
-  const prioritized    = $( "#prioritize-option" ).hasClass( "checked" )
-  const new_todo       = $( generate_todo( title_input, content_input, prioritized ) ),
-        todo_container = $( ".todo-container" )
-
-  new_todo.attr( "data-checked", prioritized )
-
-  if ( new_todo.children().first().hasClass( "checked" ) ||
-       $( ".todo-container" ).children().length === 0 ||
-       $( ".todo-container" ).children().first().attr( "data-checked" ) === "false"
+  const title_input    = $( '#title' ).val()
+  const content_input  = $( '#content' ).val()
+  const prioritized    = $( '#prioritize-option' ).hasClass( 'checked' )
+  const new_todo       = $( generate_todo( title_input, content_input, prioritized ) )
+  const todo_container = $( '.todo-container' )
+  
+  new_todo.attr( 'data-checked', prioritized )
+  
+  if ( new_todo.children().first().hasClass( 'checked' ) ||
+       todo_container.children().length === 0 ||
+       todo_container.children().first().attr( 'data-checked' ) === 'false'
   ) {
     todo_container.prepend( new_todo )
-  }
-  else {
+  } else {
     $( `.todo[data-checked='true']` ).last().after( new_todo )
   }
-
-  // Must count after the above block to account all todos.
+  
+  // Must count after the above block to account for all todos.
   const current_todo_id = count_todos()
-
+  
   $( `#checkbox-${ current_todo_id }` ).click( prioritize_todo )
-
+  
   $( `#complete-btn-${ current_todo_id }` ).click( complete_todo )
-
+  
   $( `#delete-btn-${ current_todo_id }` ).click( delete_todo )
-
+  
   $( `#edit-btn-${ current_todo_id }` ).click( edit_todo )
-
+  
   // toggle before slidedown so that element appears, not disappears.
   new_todo.toggle().slideDown( 200 )
 }
 
-$( ".modal-coverup" ).click( remove_modal )
+$( '.modal-coverup' ).click( remove_modal )
 
-$( ".btn" ).click( create_todo )
+$( '.btn' ).click( create_todo )

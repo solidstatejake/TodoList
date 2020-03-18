@@ -1,113 +1,126 @@
 .todo {
-  align-items: center;
-  background: $light-grey;
-  border-radius: 2px;
-  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.4);
-  cursor: grab;
-  display: flex;
-  height: 12rem;
-  justify-content: space-between;
-  margin: 2rem 0;
-  padding: 2rem;
-  place-content: space-between;
-  place-items: center;
-
-  &-container {
-    border-bottom: .1px solid grey;
-    color         : white;
-    max-width     : $max-app-width;
-
+    align-items           : center;
+    background            : $light-grey;
+    border-radius         : 2px;
+    box-shadow            : 0 6px 6px rgba(0, 0, 0, 0.4);
+    cursor                : grab;
+    display               : grid;
+    grid-template-columns : 8rem 13rem 40rem 6rem;
+    height                : max-content;
+    margin                : 2rem 0;
+    padding               : 2rem;
+    
+    &-container {
+        border-bottom : .1px solid grey;
+        color         : white;
+        max-width     : $max-app-width;
+        
+        &-content {
+            align-self     : flex-start;
+            display        : flex;
+            flex-direction : column;
+            max-width      : 46rem;
+            padding        : 2rem;
+        }
+        
+        &-edit {
+            width : 13rem;
+        }
+        
+        &-header {
+            cursor     : unset !important;
+            position   : sticky;
+            text-align : center;
+            top        : 0;
+            z-index    : $todo-headers-z-index;
+        }
+        
+        &-info {
+            align-self  : flex-start;
+            line-height : 2.2rem;
+            margin-top  : 2rem;
+            max-width   : 14.5rem;
+            text-align  : center;
+            
+            &-edit {
+                display         : flex;
+                justify-content : space-between;
+                width           : 54rem;
+            }
+        }
+        
+        &-option {
+            align-items     : center;
+            display         : flex;
+            flex-direction  : column;
+            font-size       : 2rem;
+            height          : 10rem;
+            justify-content : space-between;
+        }
+        
+        &-title {
+            display        : flex;
+            flex-direction : column;
+        }
+    }
+    
     &-content {
-      display        : flex;
-      flex-direction : column;
-      max-width      : 46rem;
-      padding        : 2rem;
-      place-items    : center;
+        font-size   : 1.3rem;
+        line-height : 2rem;
+        word-break  : break-all;
     }
-
-    &-edit {
-      width : 13rem;
-    }
-
+    
     &-option {
-      align-items     : center;
-      display         : flex;
-      flex-direction  : column;
-      font-size       : 2rem;
-      height          : 100%;
-      justify-content : space-between;
+        
+        &-complete, &-delete, &-edit {
+            cursor : pointer;
+        }
+        
+        &-complete {
+            color : $green;
+        }
+        
+        &-delete {
+            color : $red;
+        }
+        
+        &-edit {
+            color     : #c8cd3d;
+            font-size : 1.7rem;
+        }
     }
-
-    &-info {
-      display   : flex;
-      max-width : 14.5rem;
-
-      &-edit {
-        display         : flex;
-        justify-content : space-between;
-        width           : 54rem;
-      }
-    }
-
+    
     &-title {
-      display        : flex;
-      flex-direction : column;
+        font       : {
+            size   : 1.4rem;
+            weight : 400;
+        }
+        max-width  : 14.5rem;
+        text-align : center;
+        word-break : break-word;
+        
+        &-info {
+            border-bottom : 1px solid white;
+            font       : {
+                size   : 1.4rem;
+                weight : 400;
+            }
+        }
     }
-  }
-
-  &-content {
-    font-size   : 1.3rem;
-    line-height : 2rem;
-    word-break  : break-all;
-  }
-
-  &-option {
-
-    &-complete, &-delete, &-edit {
-      cursor : pointer;
-    }
-
-    &-complete {
-      color : $green;
-    }
-
-    &-delete {
-      color : $red;
-    }
-
-    &-edit {
-      color     : #c8cd3d;
-      font-size : 1.7rem;
-    }
-  }
-
-  &-title {
-    font-size   : 1.4rem;
-    font-weight : 400;
-    max-width   : 14.5rem;
-    text-align  : center;
-    word-break  : break-word;
-
-    &-info {
-      border-bottom : 1px solid white;
-      font-size     : 1.4rem;
-      font-weight   : 400;
-    }
-  }
 }
 
 
 /* Classes for JavaScript manip */
 
 .NA {
-  border-bottom : 5px solid #3267b8;
+    border-bottom : 5px solid #3267b8;
 }
 
 .valid {
-  border-bottom : 5px solid #339635;
+    border-bottom : 5px solid #339635;
 }
 
 .invalid {
-  border-bottom : 5px solid #ba4e4e;
+    border-bottom : 5px solid #ba4e4e;
 }
 
