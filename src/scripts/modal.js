@@ -1,15 +1,40 @@
-/* Since the modal is triggered by edit button, the logic for displaying it
- * is found in create-_todo.js.
+/*  Modal is triggered by edit button, that logic is found in create-_todo.js.
  * */
 
 // Prevent modal from appearing on load
 $( '.modal' ).toggle()
 
+/* prioritize button*/
+$( '#checkbox-modal' ).click( function () {
+  const todo_id     = $( '.modal' ).attr( 'data-current-todo' )
+  const parent_todo = $( `#todo-${ todo_id }` )
+  const clone       = parent_todo.clone( true, true )
+  
+  $( this ).toggleClass( 'checked' )
+  
+  if ( $( this ).hasClass( 'checked' ) ) {
+    clone.attr( 'data-checked', 'true' )
+    clone.children().first().addClass( 'checked' )
+    parent_todo.slideUp( 200, function () { $( this ).detach()} )
+    $( '.todo-container' ).prepend( clone )
+    clone.toggle().slideDown( 200 )
+  } else {
+    clone.attr( 'data-checked', 'false' )
+    clone.children().first().removeClass( 'checked' )
+    parent_todo.slideUp( 200, function () {
+      $( this ).detach()
+    } )
+    $( `.todo-container .todo[data-checked='true']` ).last().after( clone )
+    clone.toggle().slideDown( 200 )
+  }
+} )
+
+
 /* delete button */
 $( '#delete-btn' ).click( function () {
   const todo_id = $( '.modal' ).attr( 'data-current-todo' )
   $( '.modal, .modal-coverup' ).fadeOut( 200 )
-  $( `#todo-${ todo_id }` ).slideUp( 200, function () {$( this ).remove()} )
+  $( `#todo-${ todo_id }` ).slideUp( 200, function () { $( this ).remove() } )
 } )
 
 /* complete button */
