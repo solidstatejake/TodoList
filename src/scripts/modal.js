@@ -29,7 +29,6 @@ $( '#checkbox-modal' ).click( function () {
   }
 } )
 
-
 /* delete button */
 $( '#delete-btn' ).click( function () {
   const todo_id = $( '.modal' ).attr( 'data-current-todo' )
@@ -56,14 +55,16 @@ $( '#complete-btn' ).click( function () {
 
 /* edit button */
 $( '#btn-edit' ).click( function () {
-  const todo_id     = $( this ).parents().eq( 3 ).attr( 'data-current-todo' )
-  const new_title   = $( '#title-edit' ).val()
-  const new_content = $( '#content-edit' ).val()
-  
-  $( `#title-${ todo_id }` ).text( new_title )
-  $( `#content-${ todo_id }` ).text( new_content )
-  if ( $( `#checkbox-modal` ).hasClass( 'checked' ) ) {
-    $( `#checkbox-${ todo_id }` ).addClass( 'checked' )
+  if ( $( this ).css( 'cursor' ) === 'pointer' ) {
+    const todo_id     = $( this ).parents().eq( 2 ).attr( 'data-current-todo' )
+    const new_title   = $( '#title-edit' ).val()
+    const new_content = $( '#content-edit' ).val()
+    
+    $( `#title-${ todo_id }` ).text( new_title )
+    $( `#content-${ todo_id }` ).text( new_content )
+    if ( $( `#checkbox-modal` ).hasClass( 'checked' ) ) {
+      $( `#checkbox-${ todo_id }` ).addClass( 'checked' )
+    }
+    $( '.modal, .modal-coverup' ).fadeOut( 200 )
   }
-  $( '.modal, .modal-coverup' ).fadeOut( 200 )
 } )

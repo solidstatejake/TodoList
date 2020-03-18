@@ -1,3 +1,6 @@
+import { handle_title_edit_keyup, handle_content_edit_keyup } from './input-handler.js'
+
+
 const count_todos = () => $( '.todo' ).length
 
 const generate_todo = ( title, content, prioritized ) => {
@@ -86,6 +89,8 @@ const edit_todo = function () {
   const todo_id = $( this ).parents().eq( 2 ).attr( 'id' ).replace( 'todo-', '' )
   $( '#title-edit' ).val( $( `#title-${ todo_id }` ).text().trim() )
   $( '#content-edit' ).val( $( `#content-${ todo_id }` ).text().trim() )
+  handle_title_edit_keyup()
+  handle_content_edit_keyup()
   if ( $( `#checkbox-${ todo_id }` ).hasClass( 'checked' ) ) {
     $( '#checkbox-modal' ).addClass( 'checked' )
   } else {
@@ -96,36 +101,34 @@ const edit_todo = function () {
 }
 
 const create_todo = function () {
-  const title_input    = $( '#title' ).val()
-  const content_input  = $( '#content' ).val()
-  const prioritized    = $( '#prioritize-option' ).hasClass( 'checked' )
-  const new_todo       = $( generate_todo( title_input, content_input, prioritized ) )
-  const todo_container = $( '.todo-container' )
-  
-  new_todo.attr( 'data-checked', prioritized )
-  
-  if ( new_todo.children().first().hasClass( 'checked' ) ||
-       todo_container.children().length === 0 ||
-       todo_container.children().first().attr( 'data-checked' ) === 'false'
-  ) {
-    todo_container.prepend( new_todo )
-  } else {
-    $( `.todo[data-checked='true']` ).last().after( new_todo )
+  if ( $( '#title' ).parent().hasClass( 'valid' ) &&
+       $( '#content' ).parent().hasClass( 'valid' ) ) {
+    const title_input    = $( '#title' ).val()
+    const content_input  = $( '#content' ).val()
+    const prioritized    = $( '#prioritize-option' ).hasClass( 'checked' )
+    const new_todo       = $( generate_todo( title_input, content_input, prioritized ) )
+    const todo_container = $( '.todo-container' )
+    
+    new_todo.attr( 'data-checked', prioritized )
+    if ( new_todo.children().first().hasClass( 'checked' ) ||
+         todo_container.children().length === 0 ||
+         todo_container.children().first().attr( 'data-checked' ) === 'false'
+    ) {
+      todo_container.prepend( new_todo )
+    } else {
+      $( `.todo[data-checked='true']` ).last().after( new_todo )
+    }
+    
+    // Must count after the above block to account for all todos.
+    const current_todo_id = count_todos()
+    
+    $( `#checkbox-${ current_todo_id }` ).click( prioritize_todo )
+    $( `#complete-btn-${ current_todo_id }` ).click( complete_todo )
+    $( `#delete-btn-${ current_todo_id }` ).click( delete_todo )
+    $( `#edit-btn-${ current_todo_id }` ).click( edit_todo )
+    // toggle before slidedown so that element appears, not disappears.
+    new_todo.toggle().slideDown( 200 )
   }
-  
-  // Must count after the above block to account for all todos.
-  const current_todo_id = count_todos()
-  
-  $( `#checkbox-${ current_todo_id }` ).click( prioritize_todo )
-  
-  $( `#complete-btn-${ current_todo_id }` ).click( complete_todo )
-  
-  $( `#delete-btn-${ current_todo_id }` ).click( delete_todo )
-  
-  $( `#edit-btn-${ current_todo_id }` ).click( edit_todo )
-  
-  // toggle before slidedown so that element appears, not disappears.
-  new_todo.toggle().slideDown( 200 )
 }
 
 $( '.modal-coverup' ).click( remove_modal )

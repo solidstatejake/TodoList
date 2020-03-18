@@ -53,6 +53,7 @@
         background : rgba(0, 0, 0, 0.5);
         display    : none;
         position   : fixed;
+        top        : 0;
         z-index    : $modal-coverup-z-index;
     }
     

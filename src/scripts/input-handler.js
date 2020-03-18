@@ -2,23 +2,20 @@ let title        = $( '#title' )
 let content      = $( '#content' )
 let title_edit   = $( '#title-edit' )
 let content_edit = $( '#content-edit' )
-
-let valid = {
+let valid        = {
   title  : 'NA',
   content: 'NA',
   both   : 'NA'
 }
-
-let valid_edit = {
+let valid_edit   = {
   title  : 'NA',
   content: 'NA',
   both   : 'NA'
 }
-
-const red    = '#ba4e4e',
-      green  = '#339635',
-      blue   = '#3267b8',
-      orange = '#bc8640'
+const red        = '#ba4e4e',
+      green      = '#339635',
+      blue       = '#3267b8',
+      orange     = '#bc8640'
 
 
 const determine_input_validity = () => {
@@ -35,74 +32,74 @@ const determine_input_validity = () => {
 
 
 const update_btn_styles = () => {
-  let style = { background: '', color: '' }
+  let styles = { background: '', cursor: '' }
   determine_input_validity()
   switch ( valid.both ) {
     case 'yes':
-      style.background = green
+      styles.background = green
+      styles.cursor     = 'pointer'
       break
     case 'incomplete':
-      style.background = orange
+      styles.background = orange
+      styles.cursor     = 'not-allowed'
       break
     case 'no':
-      style.background = red
+      styles.background = red
+      styles.cursor     = 'not-allowed'
       break
     case 'NA':
     default:
-      style.background = blue
+      styles.background = blue
+      styles.cursor     = 'not-allowed'
   }
-  $( '.btn' ).css( 'background', style.background )
+  $( '.btn' ).css( styles )
 }
 
 /* Keyboard input */
-
 const handle_title_keyup = () => {
-  if (
-      0 < title.val().length &&
-      ( title.val().length < 3 || title.val().length > 10 )
-  ) {
-    title.parent().addClass( 'invalid' )
-    title.parent().removeClass( 'valid' )
-    title.parent().removeClass( 'NA' )
+  const parent = title.parent()
+  const val    = title.val()
+  if ( 0 < val.length && ( val.length < 3 || val.length > 10 ) ) {
+    parent.addClass( 'invalid' )
+    parent.removeClass( 'valid' )
+    parent.removeClass( 'NA' )
     $( '#first-icon' ).css( 'color', red )
     valid.title = 'no'
-  } else if ( 3 <= title.val().length && title.val().length <= 10 ) {
-    title.parent().removeClass( 'invalid' )
-    title.parent().addClass( 'valid' )
-    title.parent().removeClass( 'NA' )
+  } else if ( 3 <= val.length && val.length <= 10 ) {
+    parent.removeClass( 'invalid' )
+    parent.addClass( 'valid' )
+    parent.removeClass( 'NA' )
     $( '#first-icon' ).css( 'color', green )
     valid.title = 'yes'
-  } else if ( title.val().length === 0 ) {
-    title.parent().removeClass( 'invalid' )
-    title.parent().removeClass( 'valid' )
-    title.parent().addClass( 'NA' )
+  } else if ( val.length === 0 ) {
+    parent.removeClass( 'invalid' )
+    parent.removeClass( 'valid' )
+    parent.addClass( 'NA' )
     $( '#first-icon' ).css( 'color', blue )
     valid.title = 'NA'
   }
   update_btn_styles()
 }
 
-
 const handle_content_keyup = () => {
-  if (
-      0 < content.val().length &&
-      ( content.val().length < 3 || content.val().length > 100 )
-  ) {
-    content.parent().addClass( 'invalid' )
-    content.parent().removeClass( 'valid' )
-    content.parent().removeClass( 'NA' )
+  const parent = content.parent()
+  const val    = content.val()
+  if ( 0 < val.length && ( val.length < 3 || val.length > 100 ) ) {
+    parent.addClass( 'invalid' )
+    parent.removeClass( 'valid' )
+    parent.removeClass( 'NA' )
     $( '#second-icon' ).css( 'color', red )
     valid.content = 'no'
-  } else if ( 3 <= content.val().length && content.val().length <= 100 ) {
-    content.parent().removeClass( 'invalid' )
-    content.parent().addClass( 'valid' )
-    content.parent().removeClass( 'NA' )
+  } else if ( 3 <= val.length && val.length <= 100 ) {
+    parent.removeClass( 'invalid' )
+    parent.addClass( 'valid' )
+    parent.removeClass( 'NA' )
     $( '#second-icon' ).css( 'color', green )
     valid.content = 'yes'
-  } else if ( content.val().length === 0 ) {
-    content.parent().removeClass( 'invalid' )
-    content.parent().removeClass( 'valid' )
-    content.parent().addClass( 'NA' )
+  } else if ( val.length === 0 ) {
+    parent.removeClass( 'invalid' )
+    parent.removeClass( 'valid' )
+    parent.addClass( 'NA' )
     $( '#second-icon' ).css( 'color', blue )
     valid.content = 'NA'
   }
@@ -110,7 +107,6 @@ const handle_content_keyup = () => {
 }
 
 /* _todo edit input*/
-
 const determine_input_edit_validity = () => {
   if ( valid_edit.title === 'yes' && valid_edit.content === 'yes' ) {
     valid_edit.both = 'yes'
@@ -124,44 +120,48 @@ const determine_input_edit_validity = () => {
 }
 
 const update_btn_edit_styles = () => {
-  let style = { background: '', color: '' }
+  let styles = { background: '', cursor: '' }
   determine_input_edit_validity()
   switch ( valid_edit.both ) {
     case 'yes':
-      style.background = green
+      styles.background = green
+      styles.cursor     = 'pointer'
       break
     case 'incomplete':
-      style.background = orange
+      styles.background = orange
+      styles.cursor     = 'not-allowed'
       break
     case 'no':
-      style.background = red
+      styles.background = red
+      styles.cursor     = 'not-allowed'
       break
     case 'NA':
     default:
-      style.background = blue
+      styles.background = blue
+      styles.cursor     = 'not-allowed'
   }
-  $( '#btn-edit' ).css( 'background', style.background )
+  $( '#btn-edit' ).css( styles )
 }
 
 const handle_title_edit_keyup = () => {
-  if ( 0 < title_edit.val().length && ( title_edit.val().length < 3 ||
-                                        title_edit.val().length > 10 )
-  ) {
-    title_edit.parent().addClass( 'invalid' )
-    title_edit.parent().removeClass( 'valid' )
-    title_edit.parent().removeClass( 'NA' )
+  const parent = title_edit.parent()
+  const val    = title_edit.val()
+  if ( 0 < val.length && ( val.length < 3 || val.length > 10 ) ) {
+    parent.addClass( 'invalid' )
+    parent.removeClass( 'valid' )
+    parent.removeClass( 'NA' )
     $( '#first-icon-edit' ).css( 'color', red )
     valid_edit.title = 'no'
-  } else if ( 3 <= title_edit.val().length && title_edit.val().length <= 10 ) {
-    title_edit.parent().removeClass( 'invalid' )
-    title_edit.parent().addClass( 'valid' )
-    title_edit.parent().removeClass( 'NA' )
+  } else if ( 3 <= val.length && val.length <= 10 ) {
+    parent.removeClass( 'invalid' )
+    parent.addClass( 'valid' )
+    parent.removeClass( 'NA' )
     $( '#first-icon-edit' ).css( 'color', green )
     valid_edit.title = 'yes'
-  } else if ( title_edit.val().length === 0 ) {
-    title_edit.parent().removeClass( 'invalid' )
-    title_edit.parent().removeClass( 'valid' )
-    title_edit.parent().addClass( 'NA' )
+  } else if ( val.length === 0 ) {
+    parent.removeClass( 'invalid' )
+    parent.removeClass( 'valid' )
+    parent.addClass( 'NA' )
     $( '#first-icon-edit' ).css( 'color', blue )
     valid_edit.title = 'NA'
   }
@@ -169,33 +169,37 @@ const handle_title_edit_keyup = () => {
 }
 
 const handle_content_edit_keyup = () => {
-  if (
-      0 < content_edit.val().length &&
-      ( content_edit.val().length < 3 || content_edit.val().length > 100 )
-  ) {
-    content_edit.parent().addClass( 'invalid' )
-    content_edit.parent().removeClass( 'valid' )
-    content_edit.parent().removeClass( 'NA' )
+  const parent = content_edit.parent()
+  const val    = content_edit.val()
+  if ( 0 < val.length && ( val.length < 3 || val.length > 100 ) ) {
+    parent.addClass( 'invalid' )
+    parent.removeClass( 'valid' )
+    parent.removeClass( 'NA' )
     $( '#second-icon-edit' ).css( 'color', red )
     valid_edit.content = 'no'
-  } else if ( 3 <= content_edit.val().length && content_edit.val().length <= 100 ) {
-    content_edit.parent().removeClass( 'invalid' )
-    content_edit.parent().addClass( 'valid' )
-    content_edit.parent().removeClass( 'NA' )
+  } else if ( 3 <= val.length && val.length <= 100 ) {
+    parent.removeClass( 'invalid' )
+    parent.addClass( 'valid' )
+    parent.removeClass( 'NA' )
     $( '#second-icon-edit' ).css( 'color', green )
     valid_edit.content = 'yes'
-  } else if ( content_edit.val().length === 0 ) {
-    content_edit.parent().removeClass( 'invalid' )
-    content_edit.parent().removeClass( 'valid' )
-    content_edit.parent().addClass( 'NA' )
+  } else if ( val.length === 0 ) {
+    parent.removeClass( 'invalid' )
+    parent.removeClass( 'valid' )
+    parent.addClass( 'NA' )
     $( '#second-icon-edit' ).css( 'color', blue )
     valid_edit.content = 'NA'
   }
   update_btn_edit_styles()
 }
 
+handle_title_keyup()
+handle_content_keyup()
 title.keyup( handle_title_keyup )
 content.keyup( handle_content_keyup )
 
+
 title_edit.keyup( handle_title_edit_keyup )
 content_edit.keyup( handle_content_edit_keyup )
+
+export { handle_title_edit_keyup, handle_content_edit_keyup }
