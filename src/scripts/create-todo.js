@@ -6,13 +6,11 @@ const generate_todo = ( title, content, prioritized ) => {
       `<div id="todo-${ n }" class="todo" >
 
 <!-- checkbox -->
-<div id="checkbox-${ n }" class="checkbox ${ prioritized ? 'checked' : '' } m-l-2"></div>
+<div id="checkbox-${ n }" class="checkbox ${ prioritized ? 'checked' : '' } m-l-1"></div>
 
 <!-- title -->
 <div class="todo-container-info">
-    <div class="todo-container-title">
         <span id="title-${ n }" class='todo-title'>${ title }</span>
-    </div>
 </div>
 
 <!-- content -->
