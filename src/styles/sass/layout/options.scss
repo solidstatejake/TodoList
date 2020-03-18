@@ -1,35 +1,34 @@
 .options-container {
-  border-bottom   : .1px solid grey;
-  display         : flex;
-  justify-content : space-between;
-}
-.container {
-  &-option {
-    align-items     : center;
     display         : flex;
-    flex-direction  : column;
-    font-size       : 2rem;
-    height          : 100%;
     justify-content : space-between;
-  }
-
-  &-option {
-
-    &-complete, &-delete {
-      cursor : pointer;
+    margin-top      : 5rem;
+    width           : 46rem;
     }
 
-    &-complete {
-      color : $green;
-    }
+.container {
+    &-option {
+        align-items     : center;
+        display         : flex;
+        flex-direction  : column;
+        font-size       : 2rem;
+        height          : 100%;
+        justify-content : space-between;
 
-    &-delete {
-      color : $red;
-    }
+        &-complete, &-delete {
+            cursor : pointer;
+            }
 
-    &-edit {
-      color     : #c8cd3d;
-      font-size : 1.7rem;
+        &-complete {
+            color : $green;
+            }
+
+        &-delete {
+            color : $red;
+            }
+
+        &-edit {
+            color     : #C8CD3D;
+            font-size : 1.7rem;
+            }
+        }
     }
-  }
-}
