@@ -18,23 +18,20 @@
     <div class="main-container">
         <header class="header-container">
             <h1 class="header">DoOp</h1>
-            <div>
-                <p>
-                    Just enter your todo! Click the checkbox next to the todo when it's
-                    been completed.
-                </p>
-            </div>
+            <p>
+                Just enter your todo! Click the checkbox next to the todo when it's
+                been completed.
+            </p>
         </header>
         <div class="creation-container">
             <!--- input --->
             <div class="input-container-main">
-                
                 <div id="input-container-title" class="input-container NA">
                     <label class="input-label" for="title">Title</label>
                     <input id="title" class="input" type="text">
                     <i id="first-icon" class='fas fa-circle input-icon'></i>
                 </div>
-                <div id="input-container-title" class=" input-container NA">
+                <div id="input-container-content" class=" input-container NA">
                     <label class="input-label" for="content">Task</label>
                     <input id="content" class="input" type="text">
                     <i id="second-icon" class='fas fa-circle input-icon'></i>
@@ -73,33 +70,30 @@
         </div>
         <div class="modal-container-body">
             <div class="modal-container-option">
-                <div id="checkbox-modal" class="checkbox"></div>
-                <span class="todo-option-complete">
+                <div id="checkbox-modal" class="checkbox-modal"></div>
+                <span class="todo-option-complete modal-option-complete">
                     <i id="complete-btn" class="fas fa-check"></i>
                 </span>
-                <span class="todo-option-delete">
+                <span class="todo-option-delete modal-option-delete">
                     <i id="delete-btn" class="fas fa-times"></i>
                 </span>
             </div>
-            <div class="modal-container-input">
-            
-                <div class="modal-container-info-edit">
-                    <!-- edit title-->
-                    <div id="title-edit-container" class="modal-container-edit NA">
-                        <label class="input-label-edit" for="title-edit">Title</label>
-                        <input id="title-edit" class="input-edit" type="text">
-                        <i class='fas fa-circle input-icon' id="first-icon-edit"></i>
-                    </div>
-                
-                    <!-- edit content -->
-                    <div id="content-edit-container" class="modal-container-edit NA">
-                        <label class="input-label-edit" for="content-edit">Task</label>
-                        <input id="content-edit" class="input-edit" type="text">
-                        <i class='fas fa-circle input-icon'
-                           id="second-icon-edit"></i>
-                    </div>
-                    <div id="btn-edit" class="btn-edit">Edit</div>
+    
+            <div class="modal-container-info-edit">
+                <!-- edit title-->
+                <div id="title-edit-container" class="modal-container-edit valid">
+                    <label class="input-label-edit" for="title-edit">Title</label>
+                    <input id="title-edit" class="input-edit" type="text">
+                    <i class='fas fa-circle input-icon-edit' id="first-icon-edit"></i>
                 </div>
+        
+                <!-- edit content -->
+                <div id="content-edit-container" class="modal-container-edit valid">
+                    <label class="input-label-edit" for="content-edit">Task</label>
+                    <input id="content-edit" class="input-edit" type="text">
+                    <i class='fas fa-circle input-icon-edit' id="second-icon-edit"></i>
+                </div>
+                <div id="btn-edit" class="btn-edit">Edit</div>
             </div>
         </div>
     </div>
